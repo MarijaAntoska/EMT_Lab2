@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div>
+        <a href="/books/add" class="add-item" >
+            Add new book
+        </a>
+    </div>
+    <table>
+        <tr>
+            <th>Book name</th>
+
+        </tr>
+
+        <tr class="item" th:each="book: ${books}">
+            <td th:text="${book.name}">[book.name]</td>
+
+<td>
+            <form method="POST" th:action="@{'/books/{id}/delete' (id=${book.id})}">
+
+                <button type="submit" class="delete-item">Delete</button>
+            </form>
+
+            <a th:href="@{'/books/{id}/edit' (id=${book.id})}" class="edit-item">Edit</a>
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<div>
+    <ul id="nav">
+        <li><a href="/static">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</div>
+
+</body>
+</html>
